@@ -1,10 +1,8 @@
 import pandas as pd
 import requests
 
-df = pd.read_csv("Highest Holywood Grossing Movies.csv")
+df = pd.read_csv("C:\\Users\\Mariia\\Desktop\\Python2\\pythonProject\\Highest Holywood Grossing Movies.csv")
 df.drop('Index', axis=1, inplace=True)
-
-OMDB_API_KEY = "YOUR_OMDB_API_KEY"
 
 # Function to search for movies by genre in DF
 def find_movies_by_genre():
@@ -51,39 +49,36 @@ def find_movie_genre():
     if filtered_movies.empty:
         print("No movies found for the entered title.")
     else:
-        movie_title = filtered_movies.iloc[0]['Title']
-        url = f"http://www.omdbapi.com/?apikey={OMDB_API_KEY}&t={movie_title}"
+        url = f"https://www.google.com/search?q={movie_title}"
         response = requests.get(url)
-        data = response.json()
+        print("Movies found:")
+        print(filtered_movies[['Title', 'Genre', 'Movie Info']])
 
-        if 'Genre' in data:
-            print(f"The genre of the movie '{movie_title}' is: {data['Genre']}")
-        else:
-            print("Genre information not found for the movie.")
+if __name__ == '__main__':
 
 # Main program loop
-while True:
-    print("Please choose an option:")
-    print("1. Find movies by genre")
-    print("2. Find movie information")
-    print("3. Find similar movies")
-    print("4. Find movie genre")
-    print("5. Exit")
+    while True:
+        print("Please choose an option:")
+        print("1. Find movies by genre")
+        print("2. Find movie information")
+        print("3. Find similar movies")
+        print("4. Find movie genre")
+        print("5. Exit")
 
-    choice = input("Enter your choice (1-5): ")
+        choice = input("Enter your choice (1-5): ")
 
-    if choice == "1":
-        find_movies_by_genre()
-    elif choice == "2":
-        find_movie_info()
-    elif choice == "3":
-        find_similar_movies()
-    elif choice == "4":
-        find_movie_genre()
-    elif choice == "5":
-        break
-    else:
-        print("Invalid choice. Please try again.\n")
+        if choice == "1":
+            find_movies_by_genre()
+        elif choice == "2":
+            find_movie_info()
+        elif choice == "3":
+            find_similar_movies()
+        elif choice == "4":
+            find_movie_genre()
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice. Please try again.\n")
 
 # desired_genres = input("Hi! What movie did you want to watch today? Enter the genre: ")
 #
