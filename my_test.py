@@ -5,12 +5,10 @@ from final_project import find_movies_by_genre
 
 
 def test_find_movies_by_genre(capsys):
-    user_input = "Action"
+    genre_name = 'Action'
     expected_output = "Random movies of the 'Action' genre:"
 
-    input_mock = lambda: user_input
-
-    find_movies_by_genre(input_mock)
+    find_movies_by_genre(genre_name)
 
     captured = capsys.readouterr()
     actual_output = captured.out.strip()
