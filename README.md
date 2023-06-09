@@ -2,7 +2,7 @@ Movie Search Application
 This Python application allows users to search for movies based on different criteria such as genre, title, and find similar movies. It utilizes a dataset of highest-grossing Hollywood movies for providing movie information.
 
 Prerequisites
-Python 3.x
+Python 
 pandas library
 requests library
 
@@ -12,6 +12,7 @@ Open a terminal or command prompt.
 Navigate to the project directory.
 Install the required libraries by running the following command:
 pip install pandas requests
+Or using the settings, you need to go to the menu item 'File', then 'Settings', then 'Python Interpreteter', then select the menu item 'Install' and find the desired package by name .
 
 Usage
 Ensure that you have the dataset file Highest Holywood Grossing Movies.csv in the same directory as the code file.
